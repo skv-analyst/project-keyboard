@@ -1,169 +1,189 @@
 {
-  "title": "Home row mods + Space layer",
+  "title": "Custom",
   "rules": [
-
     {
-      "description": "Home row mods",
+      "description": "Space Layer Activator",
       "manipulators": [
-
         {
           "type": "basic",
-          "from": { "key_code": "a" },
-          "to_if_alone": [{ "key_code": "a" }],
-          "to_if_held_down": [{ "key_code": "left_control" }]
-        },
-        {
-          "type": "basic",
-          "from": { "key_code": "s" },
-          "to_if_alone": [{ "key_code": "s" }],
-          "to_if_held_down": [{ "key_code": "left_option" }]
-        },
-        {
-          "type": "basic",
-          "from": { "key_code": "d" },
-          "to_if_alone": [{ "key_code": "d" }],
-          "to_if_held_down": [{ "key_code": "left_command" }]
-        },
-        {
-          "type": "basic",
-          "from": { "key_code": "f" },
-          "to_if_alone": [{ "key_code": "f" }],
-          "to_if_held_down": [{ "key_code": "left_shift" }]
-        },
-
-        {
-          "type": "basic",
-          "from": { "key_code": "j" },
-          "to_if_alone": [{ "key_code": "j" }],
-          "to_if_held_down": [{ "key_code": "left_shift" }]
-        },
-        {
-          "type": "basic",
-          "from": { "key_code": "k" },
-          "to_if_alone": [{ "key_code": "k" }],
-          "to_if_held_down": [{ "key_code": "left_command" }]
-        },
-        {
-          "type": "basic",
-          "from": { "key_code": "l" },
-          "to_if_alone": [{ "key_code": "l" }],
-          "to_if_held_down": [{ "key_code": "left_option" }]
-        },
-        {
-          "type": "basic",
-          "from": { "key_code": "semicolon" },
-          "to_if_alone": [{ "key_code": "semicolon" }],
-          "to_if_held_down": [{ "key_code": "left_control" }]
+          "description": "Hold Space -> Layer Mode",
+          "from": { "key_code": "spacebar", "modifiers": { "optional": ["any"] } },
+          "to": [ { "set_variable": { "name": "space_layer", "value": 1 } } ],
+          "to_after_key_up": [ { "set_variable": { "name": "space_layer", "value": 0 } } ],
+          "to_if_alone": [ { "key_code": "spacebar" } ]
         }
       ]
     },
-
     {
-      "description": "Space layer",
+      "description": "Space Layer: Navigation & Clipboard",
       "manipulators": [
 
+        // Clipboard Shortcuts (Z/X/C/V)
         {
           "type": "basic",
-          "from": {
-            "key_code": "spacebar",
-            "modifiers": { "optional": ["any"] }
-          },
-          "to_if_held_down": [
-            { "set_variable": { "name": "space_layer", "value": 1 } }
-          ],
-          "to_after_key_up": [
-            { "set_variable": { "name": "space_layer", "value": 0 } }
-          ],
-          "to_if_alone": [
-            { "key_code": "spacebar" }
-          ]
+          "description": "Z -> Cmd+Z (Undo)",
+          "from": { "key_code": "z", "modifiers": { "optional": ["any"] } },
+          "to": [ { "key_code": "z", "modifiers": ["left_command"] } ],
+          "conditions": [ { "type": "variable_if", "name": "space_layer", "value": 1 } ]
+        },
+        {
+          "type": "basic",
+          "description": "X -> Cmd+X (Cut)",
+          "from": { "key_code": "x", "modifiers": { "optional": ["any"] } },
+          "to": [ { "key_code": "x", "modifiers": ["left_command"] } ],
+          "conditions": [ { "type": "variable_if", "name": "space_layer", "value": 1 } ]
+        },
+        {
+          "type": "basic",
+          "description": "C -> Cmd+C (Copy)",
+          "from": { "key_code": "c", "modifiers": { "optional": ["any"] } },
+          "to": [ { "key_code": "c", "modifiers": ["left_command"] } ],
+          "conditions": [ { "type": "variable_if", "name": "space_layer", "value": 1 } ]
+        },
+        {
+          "type": "basic",
+          "description": "V -> Cmd+V (Paste)",
+          "from": { "key_code": "v", "modifiers": { "optional": ["any"] } },
+          "to": [ { "key_code": "v", "modifiers": ["left_command"] } ],
+          "conditions": [ { "type": "variable_if", "name": "space_layer", "value": 1 } ]
         },
 
+        // Navigation (I/J/K/L etc)
         {
           "type": "basic",
+          "description": "I -> Up Arrow",
+          "from": { "key_code": "i", "modifiers": { "optional": ["any"] } },
+          "to": [ { "key_code": "up_arrow" } ],
+          "conditions": [ { "type": "variable_if", "name": "space_layer", "value": 1 } ]
+        },
+        {
+          "type": "basic",
+          "description": "J -> Left Arrow",
           "from": { "key_code": "j", "modifiers": { "optional": ["any"] } },
-          "to": [{ "key_code": "left_arrow" }],
-          "conditions": [
-            { "type": "variable_if", "name": "space_layer", "value": 1 }
-          ]
+          "to": [ { "key_code": "left_arrow" } ],
+          "conditions": [ { "type": "variable_if", "name": "space_layer", "value": 1 } ]
         },
         {
           "type": "basic",
+          "description": "K -> Down Arrow",
           "from": { "key_code": "k", "modifiers": { "optional": ["any"] } },
-          "to": [{ "key_code": "down_arrow" }],
-          "conditions": [
-            { "type": "variable_if", "name": "space_layer", "value": 1 }
-          ]
+          "to": [ { "key_code": "down_arrow" } ],
+          "conditions": [ { "type": "variable_if", "name": "space_layer", "value": 1 } ]
         },
         {
           "type": "basic",
+          "description": "L -> Right Arrow",
           "from": { "key_code": "l", "modifiers": { "optional": ["any"] } },
-          "to": [{ "key_code": "up_arrow" }],
-          "conditions": [
-            { "type": "variable_if", "name": "space_layer", "value": 1 }
-          ]
+          "to": [ { "key_code": "right_arrow" } ],
+          "conditions": [ { "type": "variable_if", "name": "space_layer", "value": 1 } ]
         },
         {
           "type": "basic",
-          "from": { "key_code": "semicolon", "modifiers": { "optional": ["any"] } },
-          "to": [{ "key_code": "right_arrow" }],
-          "conditions": [
-            { "type": "variable_if", "name": "space_layer", "value": 1 }
-          ]
-        },
-
-        {
-          "type": "basic",
-          "from": { "key_code": "comma" },
-          "to": [{ "key_code": "delete_or_backspace" }],
-          "conditions": [
-            { "type": "variable_if", "name": "space_layer", "value": 1 }
-          ]
-        },
-
-        {
-          "type": "basic",
-          "from": { "key_code": "z" },
-          "to": [
-            { "key_code": "z", "modifiers": ["command"] }
-          ],
-          "conditions": [
-            { "type": "variable_if", "name": "space_layer", "value": 1 }
-          ]
+          "description": "U -> Home",
+          "from": { "key_code": "u", "modifiers": { "optional": ["any"] } },
+          "to": [ { "key_code": "home" } ],
+          "conditions": [ { "type": "variable_if", "name": "space_layer", "value": 1 } ]
         },
         {
           "type": "basic",
-          "from": { "key_code": "x" },
-          "to": [
-            { "key_code": "x", "modifiers": ["command"] }
-          ],
-          "conditions": [
-            { "type": "variable_if", "name": "space_layer", "value": 1 }
-          ]
+          "description": "O -> End",
+          "from": { "key_code": "o", "modifiers": { "optional": ["any"] } },
+          "to": [ { "key_code": "end" } ],
+          "conditions": [ { "type": "variable_if", "name": "space_layer", "value": 1 } ]
         },
         {
           "type": "basic",
-          "from": { "key_code": "c" },
-          "to": [
-            { "key_code": "c", "modifiers": ["command"] }
-          ],
-          "conditions": [
-            { "type": "variable_if", "name": "space_layer", "value": 1 }
-          ]
+          "description": "M -> Alt + Left (Word Back)",
+          "from": { "key_code": "m", "modifiers": { "optional": ["any"] } },
+          "to": [ { "key_code": "left_arrow", "modifiers": ["left_option"] } ],
+          "conditions": [ { "type": "variable_if", "name": "space_layer", "value": 1 } ]
         },
         {
           "type": "basic",
-          "from": { "key_code": "v" },
-          "to": [
-            { "key_code": "v", "modifiers": ["command"] }
-          ],
-          "conditions": [
-            { "type": "variable_if", "name": "space_layer", "value": 1 }
-          ]
+          "description": ", -> Alt + Right (Word Forward)",
+          "from": { "key_code": "period", "modifiers": { "optional": ["any"] } },
+          "to": [ { "key_code": "right_arrow", "modifiers": ["left_option"] } ],
+          "conditions": [ { "type": "variable_if", "name": "space_layer", "value": 1 } ]
         }
-
+      ]
+    },
+    {
+      "description": "Home Row Mods - LEFT Hand (Always Active)",
+      "parameters": {
+        // "basic.to_if_alone_timeout_milliseconds": 1000,
+        // "basic.to_if_held_down_threshold_milliseconds": 1000
+      },
+      "manipulators": [
+        {
+          "type": "basic",
+          "description": "A -> Ctrl",
+          "from": { "key_code": "a", "modifiers": { "optional": ["any"] } },
+          "to": [ { "key_code": "left_control" } ],
+          "to_if_alone": [ { "key_code": "a" } ]
+        },
+        {
+          "type": "basic",
+          "description": "S -> Option",
+          "from": { "key_code": "s", "modifiers": { "optional": ["any"] } },
+          "to": [ { "key_code": "left_option" } ],
+          "to_if_alone": [ { "key_code": "s" } ]
+        },
+        {
+          "type": "basic",
+          "description": "D -> Cmd",
+          "from": { "key_code": "d", "modifiers": { "optional": ["any"] } },
+          "to": [ { "key_code": "left_command" } ],
+          "to_if_alone": [ { "key_code": "d" } ]
+        },
+        {
+          "type": "basic",
+          "description": "F -> Shift",
+          "from": { "key_code": "f", "modifiers": { "optional": ["any"] } },
+          "to": [ { "key_code": "left_shift" } ],
+          "to_if_alone": [ { "key_code": "f" } ]
+        }
+      ]
+    },
+    {
+      "description": "Home Row Mods - RIGHT Hand (Disabled when Space held)",
+      "parameters": {
+        // "basic.to_if_alone_timeout_milliseconds": 1000,
+        // "basic.to_if_held_down_threshold_milliseconds": 1000
+      },
+      "manipulators": [
+        {
+          "type": "basic",
+          "description": "J -> Shift",
+          "from": { "key_code": "j", "modifiers": { "optional": ["any"] } },
+          "to": [ { "key_code": "left_shift" } ],
+          "to_if_alone": [ { "key_code": "j" } ],
+          "conditions": [ { "type": "variable_if", "name": "space_layer", "value": 0 } ]
+        },
+        {
+          "type": "basic",
+          "description": "K -> Cmd",
+          "from": { "key_code": "k", "modifiers": { "optional": ["any"] } },
+          "to": [ { "key_code": "left_command" } ],
+          "to_if_alone": [ { "key_code": "k" } ],
+          "conditions": [ { "type": "variable_if", "name": "space_layer", "value": 0 } ]
+        },
+        {
+          "type": "basic",
+          "description": "L -> Option",
+          "from": { "key_code": "l", "modifiers": { "optional": ["any"] } },
+          "to": [ { "key_code": "left_option" } ],
+          "to_if_alone": [ { "key_code": "l" } ],
+          "conditions": [ { "type": "variable_if", "name": "space_layer", "value": 0 } ]
+        },
+        {
+          "type": "basic",
+          "description": "; -> Ctrl",
+          "from": { "key_code": "semicolon", "modifiers": { "optional": ["any"] } },
+          "to": [ { "key_code": "left_control" } ],
+          "to_if_alone": [ { "key_code": "semicolon" } ],
+          "conditions": [ { "type": "variable_if", "name": "space_layer", "value": 0 } ]
+        }
       ]
     }
-
   ]
 }
