@@ -32,7 +32,7 @@
     <keyMapSet id="2c54">
         <keyMap index="0">
             <!-- Layer-Base-0. Row 1 -->
-            <key code="50" output="'"/>
+            <key code="50" output="&#x0022;"/> <!-- " -->
             <key code="18" output="!"/>
             <key code="19" output="@"/>
             <key code="20" output="#"/>
@@ -100,7 +100,7 @@
 
         <keyMap index="1">
             <!-- Layer-Shift-1. Row 1 -->
-            <key code="50" output="&#x0022;"/>  <!-- " --> 
+            <key code="50" output="'"/>
             <key code="18" output="1"/>
             <key code="19" output="2"/>
             <key code="20" output="3"/>
