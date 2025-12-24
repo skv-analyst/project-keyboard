@@ -2,29 +2,31 @@
 <!DOCTYPE keyboard SYSTEM "KeyboardLayout.dtd">
 
 <keyboard group="126" id="25251" name="universal-en-base" maxout="1">
-    
-    <!-- Девайсы -->
+
     <layouts>
         <layout first="0" last="255" mapSet="2c54" modifiers="308"/>
     </layouts>
-    
-    <!-- Слои -->
+
     <modifierMap id="308" defaultIndex="0">
-        <!-- Слой 0 — база -->
+        <!-- Layer-Base-0 -->
         <keyMapSelect mapIndex="0">
             <modifier keys=""/>
         </keyMapSelect>
 
-        <!-- Слой 1 — Shift  -->
+        <!-- Layer-Shift-1 -->
         <keyMapSelect mapIndex="1">
             <modifier keys="anyShift"/>
+        </keyMapSelect>
+
+        <!-- Layer-Option-2 -->
+        <keyMapSelect mapIndex="2">
+            <modifier keys="anyOption"/>
         </keyMapSelect>
     </modifierMap>
 
     <keyMapSet id="2c54">
-        <!-- Слой 0: без модификаторов -->
         <keyMap index="0">
-            <!-- Ряд 1 -->
+            <!-- Layer-Base-0. Row 1 -->
             <key code="50" output="~"/>
             <key code="18" output="!"/>
             <key code="19" output="@"/>
@@ -39,8 +41,9 @@
             <key code="27" output="_"/>
             <key code="24" output="+"/>
             <key code="51" output="&#x0008;"/>  <!-- Backspace -->
+            <key code="53" output="&#x001B;"/>  <!-- Esc for NuPhy Air60 V2 -->
 
-            <!-- Ряд 2 -->
+            <<!-- Layer-Base-0. Row 2 -->
             <key code="48" output="&#x0009;"/>  <!-- Tab -->
             <key code="12" output="q"/>
             <key code="13" output="w"/>
@@ -56,7 +59,7 @@
             <key code="30" output="]"/>
             <key code="42" output="\"/>
             
-            <!-- Ряд 3 -->
+            <!-- Layer-Base-0. Row 3 -->
             <key code="0" output="a"/>
             <key code="1" output="s"/>
             <key code="2" output="d"/>
@@ -70,7 +73,7 @@
             <key code="39" output="&#x0027;"/>  <!-- ' -->
             <key code="36" output="&#x000D;"/>  <!-- Enter -->
 
-            <!-- Ряд 4 -->
+            <!-- Layer-Base-0. Row 4 -->
             <key code="6" output="z"/>
             <key code="7" output="x"/>
             <key code="8" output="c"/>
@@ -82,7 +85,7 @@
             <key code="47" output="."/>
             <key code="44" output="/"/>
 
-            <!-- Ряд 5 -->
+            <!-- Layer-Base-0. Row 5 -->
             <key code="49" output=" "/>
             <key code="123" output="←"/>
             <key code="124" output="→"/>
@@ -90,9 +93,8 @@
             <key code="126" output="↑"/>
         </keyMap>
 
-        <!-- Слой 1: с Shift -->
         <keyMap index="1">
-            <!-- Ряд 1 -->
+            <!-- Layer-Shift-1. Row 1 -->
             <key code="50" output="`"/>
             <key code="18" output="1"/>
             <key code="19" output="2"/>
@@ -108,7 +110,7 @@
             <key code="24" output="="/>
             <key code="51" output="&#x0008;"/>  <!-- Backspace -->
 
-            <!-- Ряд 2 -->
+            <!-- Layer-Shift-1. Row 2 -->
             <key code="48" output="&#x0009;"/>  <!-- Tab -->
             <key code="12" output="Q"/>
             <key code="13" output="W"/>
@@ -124,7 +126,7 @@
             <key code="30" output="}"/>
             <key code="42" output="|"/>
             
-            <!-- Ряд 3 -->
+            <!-- Layer-Shift-1. Row 3 -->
             <key code="0" output="A"/>
             <key code="1" output="S"/>
             <key code="2" output="D"/>
@@ -138,7 +140,7 @@
             <key code="39" output="&#x0022;"/>  <!-- " --> 
             <key code="36" output="&#x000D;"/>  <!-- Enter -->
 
-            <!-- Ряд 4 -->
+            <!-- Layer-Shift-1. Row 4 -->
             <key code="6" output="Z"/>
             <key code="7" output="X"/>
             <key code="8" output="C"/>
@@ -150,7 +152,74 @@
             <key code="47" output="&#x003E;"/> <!-- > -->
             <key code="44" output="?"/>
 
-            <!-- Ряд 5 -->
+            <!-- Layer-Shift-1. Row 5 -->
+            <key code="49" output=" "/>
+            <key code="123" output="←"/>
+            <key code="124" output="→"/>
+            <key code="125" output="↓"/>
+            <key code="126" output="↑"/>
+        </keyMap>
+
+        <keyMap index="2">
+            <!-- Layer-Option-2. Row 1 -->
+            <key code="50" output="`"/>
+            <key code="18" output=""/>
+            <key code="19" output=""/>
+            <key code="20" output="№"/>
+            <key code="21" output=""/>
+            <key code="23" output=""/>
+            <key code="22" output=""/>
+            <key code="26" output="&#x0026;"/>  <!-- &-->
+            <key code="28" output="≈"/>
+            <key code="25" output="≤"/>
+            <key code="29" output="≥"/>
+            <key code="27" output="–"/>
+            <key code="24" output="≠"/>
+            <key code="51" output="&#x0008;"/>  <!-- Backspace -->
+
+            <!-- Layer-Option-2. Row 2 -->
+            <key code="48" output="&#x0009;"/>  <!-- Tab -->
+            <key code="12" output=""/>
+            <key code="13" output=""/>
+            <key code="14" output=""/>
+            <key code="15" output=""/>
+            <key code="17" output=""/>
+            <key code="16" output=""/>
+            <key code="32" output=""/>
+            <key code="34" output=""/>
+            <key code="31" output=""/>
+            <key code="35" output=""/>
+            <key code="33" output="&#x003C;"/>  <!-- < -->
+            <key code="30" output="&#x003E;"/>  <!-- > -->
+            <key code="42" output="\"/>
+
+            <!-- Layer-Option-2. Row 3 -->
+            <key code="0" output=""/>
+            <key code="1" output=""/>
+            <key code="2" output=""/>
+            <key code="3" output=""/>
+            <key code="5" output=""/>
+            <key code="4" output=""/>
+            <key code="38" output=""/>
+            <key code="40" output=""/>
+            <key code="37" output=""/>
+            <key code="41" output=""/>
+            <key code="39" output=""/>
+            <key code="36" output="&#x000D;"/>  <!-- Enter -->
+
+            <!-- Layer-Option-2. Row 4 -->
+            <key code="6" output=""/>
+            <key code="7" output=""/>
+            <key code="8" output=""/>
+            <key code="9" output=""/>
+            <key code="11" output=""/>
+            <key code="45" output=""/>
+            <key code="46" output=""/>
+            <key code="43" output=""/>
+            <key code="47" output=""/>
+            <key code="44" output=""/>
+
+            <!-- Layer-Option-2. Row 5 -->
             <key code="49" output=" "/>
             <key code="123" output="←"/>
             <key code="124" output="→"/>
