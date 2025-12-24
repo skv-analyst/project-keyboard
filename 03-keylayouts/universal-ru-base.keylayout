@@ -1,7 +1,7 @@
 <?xml version="1.1" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "KeyboardLayout.dtd">
 
-<keyboard group="126" id="25252" name="universal-ru" maxout="1">
+<keyboard group="126" id="25252" name="universal-ru-base" maxout="1">
     
     <!-- Девайсы -->
     <layouts>
